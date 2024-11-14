@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards com Modais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            overflow: hidden;
+            width: 250px;
+            margin: 10px;
+        }
+
+        .card img {
+            width: 100%;
+        }
+
+        .modal {
+            display: none; /* Escondido inicialmente */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .button {
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card" data-modal="modal1">
+    <img src="https://via.placeholder.com/250x150" alt="Imagem do Card 1">
+</div>
+<div class="card" data-modal="modal2">
+    <img src="https://via.placeholder.com/250x150/FF5733" alt="Imagem do Card 2">
+</div>
+<div class="card" data-modal="modal3">
+    <img src="https://via.placeholder.com/250x150/33FF57" alt="Imagem do Card 3">
+</div>
+<div class="card" data-modal="modal4">
+    <img src="https://via.placeholder.com/250x150/3357FF" alt="Imagem do Card 4">
+</div>
+<div class="card" data-modal="modal5">
+    <img src="https://via.placeholder.com/250x150/FF33A6" alt="Imagem do Card 5">
+</div>
+<div class="card" data-modal="modal6">
+    <img src="https://via.placeholder.com/250x150/FFC300" alt="Imagem do Card 6">
+</div>
+<div class="card" data-modal="modal7">
+    <img src="https://via.placeholder.com/250x150/8E44AD" alt="Imagem do Card 7">
+</div>
+<div class="card" data-modal="modal8">
+    <img src="https://via.placeholder.com/250x150/2ECC71" alt="Imagem do Card 8">
+</div>
+
+<div class="modal" id="modal1">
+    <div class="modal-content">
+        <span class="close" data-modal="modal1">&times;</span>
+        <h2>Descrição do Card 1</h2>
+        <p>Aqui está a descrição do primeiro card.</p>
+        <button class="button">Botão do Modal 1</button>
+    </div>
+</div>
+
+<div class="modal" id="modal2">
+    <div class="modal-content">
+        <span class="close" data-modal="modal2">&times;</span>
+        <h2>Descrição do Card 2</h2>
+        <p>Aqui está a descrição do segundo card.</p>
+        <button class="button">Botão do Modal 2</button>
+    </div>
+</div>
+
+<div class="modal" id="modal3">
+    <div class="modal-content">
+        <span class="close" data-modal="modal3">&times;</span>
+        <h2>Descrição do Card 3</h2>
+        <p>Aqui está a descrição do terceiro card.</p>
+        <button class="button">Botão do Modal 3</button>
+    </div>
+</div>
+
+<div class="modal" id="modal4">
+    <div class="modal-content">
+        <span class="close" data-modal="modal4">&times;</span>
+        <h2>Descrição do Card 4</h2>
+        <p>Aqui está a descrição do quarto card.</p>
+        <button class="button">Botão do Modal 4</button>
+    </div>
+</div>
+
+<div class="modal" id="modal5">
+    <div class="modal-content">
+        <span class="close" data-modal="modal5">&times;</span>
+        <h2>Descrição do Card 5</h2>
+        <p>Aqui está a descrição do quinto card.</p>
+        <button class="button">Botão do Modal 5</button>
+    </div>
+</div>
+
+<div class="modal" id="modal6">
+    <div class="modal-content">
+        <span class="close" data-modal="modal6">&times;</span>
+        <h2>Descrição do Card 6</h2>
+        <p>Aqui está a descrição do sexto card.</p>
+        <button class="button">Botão do Modal 6</button>
+    </div>
+</div>
+
+<div class="modal" id="modal7">
+    <div class="modal-content">
+        <span class="close" data-modal="modal7">&times;</span>
+        <h2>Descrição do Card 7</h2>
+        <p>Aqui está a descrição do sétimo card.</p>
+        <button class="button">Botão do Modal 7</button>
+    </div>
+</div>
+
+<div class="modal" id="modal8">
+    <div class="modal-content">
+        <span class="close" data-modal="modal8">&times;</span>
+        <h2>Descrição do Card 8</h2>
+        <p>Aqui está a descrição do oitavo card.</p>
+        <button class="button">Botão do Modal 8</button>
+    </div>
+</div>
+
+<script>
+    // Obter todos os cards e modais
+    var cards = document.querySelectorAll(".card");
+    var modals = document.querySelectorAll(".modal");
+    var closeButtons = document.querySelectorAll(".close");
+
+    // Adicionar evento de clique a cada card
+    cards.forEach(card => {
+        card.onclick = function() {
+            var modalId = card.getAttribute("data-modal");
+            document.getElementById(modalId).style.display = "flex";
+        }
+    });
+
+    // Adicionar evento de clique a cada botão de fechar
+    closeButtons.forEach(button => {
+        button.onclick = function() {
+            var modalId = button.getAttribute("data-modal");
+            document.getElementById(modalId).style.display = "none";
+        }
+    });
+
+    // Fechar o modal se o usuário clicar fora do conteúdo do modal
+    window.onclick = function(event) {
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
