@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápios com Modais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background-color: #007BFF;
+            padding: 10px;
+            color: white;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            display: inline-block;
+            width: calc(25% - 20px);
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" onclick="showMenu('menu1')">Cardápio 1</a>
+    <a href="#" onclick="showMenu('menu2')">Cardápio 2</a>
+    <a href="#" onclick="showMenu('menu3')">Cardápio 3</a>
+</nav>
+
+<div id="menu1" class="menu" style="display:none;">
+    <div class="card" onclick="openModal('modal1')">Card 1</div>
+    <div class="card" onclick="openModal('modal2')">Card 2</div>
+    <div class="card" onclick="openModal('modal3')">Card 3</div>
+    <div class="card" onclick="openModal('modal4')">Card 4</div>
+    <div class="card" onclick="openModal('modal5')">Card 5</div>
+    <div class="card" onclick="openModal('modal6')">Card 6</div>
+    <div class="card" onclick="openModal('modal7')">Card 7</div>
+    <div class="card" onclick="openModal('modal8')">Card 8</div>
+    <div class="card" onclick="openModal('modal9')">Card 9</div>
+    <div class="card" onclick="openModal('modal10')">Card 10</div>
+</div>
+
+<div id="menu2" class="menu" style="display:none;">
+    <div class="card" onclick="openModal('modal11')">Card 11</div>
+    <div class="card" onclick="openModal('modal12')">Card 12</div>
+    <div class="card" onclick="openModal('modal13')">Card 13</div>
+    <div class="card" onclick="openModal('modal14')">Card 14</div>
+    <div class="card" onclick="openModal('modal15')">Card 15</div>
+    <div class="card" onclick="openModal('modal16')">Card 16</div>
+    <div class="card" onclick="openModal('modal17')">Card 17</div>
+    <div class="card" onclick="openModal('modal18')">Card 18</div>
+    <div class="card" onclick="openModal('modal19')">Card 19</div>
+    <div class="card" onclick="openModal('modal20')">Card 20</div>
+</div>
+
+<div id="menu3" class="menu" style="display:none;">
+    <div class="card" onclick="openModal('modal21')">Card 21</div>
+    <div class="card" onclick="openModal('modal22')">Card 22</div>
+    <div class="card" onclick="openModal('modal23')">Card 23</div>
+    <div class="card" onclick="openModal('modal24')">Card 24</div>
+    <div class="card" onclick="openModal('modal25')">Card 25</div>
+    <div class="card" onclick="openModal('modal26')">Card 26</div>
+    <div class="card" onclick="openModal('modal27')">Card 27</div>
+    <div class="card" onclick="openModal('modal28')">Card 28</div>
+    <div class="card" onclick="openModal('modal29')">Card 29</div>
+    <div class="card" onclick="openModal('modal30')">Card 30</div>
+</div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span onclick="closeModal('modal1')" style="cursor:pointer;">&times;</span>
+        <p>Conteúdo do Card 1</p>
+    </div>
+</div>
+
+<!-- Adicione os modais para os outros cards aqui -->
+
+<script>
+    function showMenu(menuId) {
+        const menus = document.querySelectorAll('.menu');
+        menus.forEach(menu => {
+            menu.style.display = 'none'; // Esconde todos os menus
+        });
+        document.getElementById(menuId).style.display = 'block'; // Mostra o menu selecionado
+    }
+
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'block'; // Abre o modal
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none'; // Fecha o modal
+    }
+</script>
+</body>
+</html>
